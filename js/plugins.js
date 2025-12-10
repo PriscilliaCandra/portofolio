@@ -1,21 +1,3 @@
- /*------------------------------------*\
-       Plugins - Table of contents
- \*------------------------------------*/
-
-
- /*
- - AOS
- - animated progress bar 
- - waypoint
- - isotope
- - Chocolat
- 
- */
-
-
-
-
- /* AOS - Animate On Scroll Library */
 !(function (e, t) {
   "object" == typeof exports && "object" == typeof module
     ? (module.exports = t())

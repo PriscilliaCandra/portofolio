@@ -8,157 +8,1394 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="css/vendor.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" type="text/css" href="css/vendor.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap"
         rel="stylesheet" />
-    <script src="js/modernizr.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chocolat@1.0.1/dist/chocolat.css" />
+    
+    <style>
+        /* ... [PASTE CSS BARU DI SINI] ... */
+        :root {
+            --accent-color: #6366f1;
+            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+            --secondary-color: #f8fafc;
+            --dark-color: #0f172a;
+            --grey-color: #64748b;
+            --light-grey: #e2e8f0;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --card-shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.15),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --body-text-color: #0f172a;
+            --light-text-color: #64748b;
+            --link-color: #0f172a;
+        }
+
+        body.dark-mode {
+            --secondary-color: #0f172a;
+            --dark-color: #f8fafc;
+            --body-text-color: #e2e8f0;
+            --light-text-color: #94a3b8;
+            --grey-color: #cbd5e1;
+            --light-grey: #1e293b;
+            --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3),
+                0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            --card-shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.4),
+                0 10px 10px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--body-text-color);
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            color: var(--light-text-color);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .lead-paragraph {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Links */
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        .icon-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        .icon-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* Buttons */
+        .btn {
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-outline-primary {
+            background: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* ==================== NAVIGATION (Left Fixed for Desktop) ==================== */
+        .main-navigation-wrapper {
+            /* For desktop */
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            display: none; 
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .nav-pills {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 1rem 0;
+            flex-direction: column; /* Vertical navigation */
+        }
+
+        .nav-link {
+            width: 60px;
+            height: 60px;
+            border-radius: 50% !important;
+            margin: 8px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--light-text-color);
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 1.5rem;
+        }
+
+        .nav-link.active {
+            background: var(--accent-gradient);
+            color: white;
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+        }
+
+        .nav-link:hover:not(.active) {
+            color: var(--accent-color);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        body.dark-mode .nav-pills {
+            background: rgba(15, 23, 42, 0.5);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        body.dark-mode .nav-link {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        /* Mobile Navigation */
+        .offcanvas-btn {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1050;
+            display: none;
+        }
+
+        .mobile-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            padding: 2rem;
+        }
+
+        .mobile-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            color: var(--light-text-color);
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+
+        .mobile-nav-item:hover,
+        .mobile-nav-item.active {
+            background: var(--accent-gradient);
+            color: white;
+        }
+
+        /* ==================== SIDEBAR (Profile Right Fixed for Desktop) ==================== */
+        .hero-sidebar {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, rgba(248, 250, 252, 0.95) 100%);
+            border-left: 1px solid var(--light-grey);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 320px;
+            padding: 2rem 1.5rem;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease-in-out;
+            z-index: 1051;
+            transform: translateX(100%);
+            overflow-y: auto;
+        }
+
+        .hero-sidebar.show {
+            transform: translateX(0);
+        }
+
+        body.dark-mode .hero-sidebar {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            border-left-color: #334155;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .sidebar-content {
+            text-align: center;
+            padding-top: 1rem;
+        }
+
+        .hero-img {
+            border: 4px solid white;
+            background: var(--accent-gradient) border-box;
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+            transition: var(--transition);
+        }
+
+        .hero-img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.3);
+        }
+
+        .sidebar-subtitle {
+            color: var(--grey-color);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Social Links */
+        .social-icon {
+            margin: 2rem 0;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: white;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            border: 1px solid var(--light-grey);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            font-size: 1.25rem;
+        }
+
+        .social-link:hover {
+            background: var(--accent-gradient);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.3);
+            border-color: transparent;
+        }
+
+        body.dark-mode .social-link {
+            background: #1e293b;
+            color: #cbd5e1;
+            border-color: #334155;
+        }
+
+        /* Sidebar Info */
+        .sidebar-info {
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        body.dark-mode .sidebar-info {
+            background: rgba(30, 41, 59, 0.8);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            flex-direction: column;
+        }
+
+        .info-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        body.dark-mode .info-item {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .info-content h6 {
+            font-size: 0.85rem;
+            color: var(--grey-color);
+            margin-bottom: 0.25rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-content p {
+            font-size: 0.95rem;
+            color: var(--dark-color);
+            margin: 0;
+            font-weight: 500;
+            word-wrap: break-word;
+        }
+
+        body.dark-mode .info-content p {
+            color: #e2e8f0;
+        }
+
+        /* Download Buttons */
+        .download-buttons {
+            margin-top: 1.5rem;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.5rem;
+            background: white;
+            border: 1px solid var(--light-grey);
+            border-radius: 12px;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: var(--transition);
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .download-btn:hover {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+        }
+
+        body.dark-mode .download-btn {
+            background: #1e293b;
+            color: #e2e8f0;
+            border-color: #334155;
+        }
+
+        /* Sidebar Close Button */
+        .sidebar-close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            z-index: 1052;
+        }
+
+        .sidebar-close-btn:hover {
+            transform: rotate(90deg);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        /* Sidebar Overlay */
+        .sidebar-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1050;
+            display: none;
+            backdrop-filter: blur(5px);
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .content-container {
+            padding: 2rem 0;
+        }
+
+        section {
+            padding: 5rem 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .mid-break {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--light-grey), transparent);
+            margin: 3rem 0;
+        }
+
+        /* Home Section */
+        #home {
+            padding: 8rem 0;
+        }
+
+        /* Services */
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        /* Skills */
+        .progressbar-tooltip {
+            margin-bottom: 2rem;
+        }
+
+        .ab-progress {
+            margin-bottom: 1.5rem;
+        }
+
+        .ab-progress h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .progress-bar-wrap {
+            height: 10px;
+            width: 100%;
+            border-radius: 10px;
+            background: var(--light-grey);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .ab-progress-bar {
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 10px;
+            position: relative;
+            width: 0;
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .ab-progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.4),
+                    transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent-gradient);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.25rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            border: 2px solid white;
+            box-shadow: 0 0 0 4px var(--accent-color);
+        }
+
+        .timeline-content {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        body.dark-mode .timeline-content {
+            background: #1e293b;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: var(--accent-gradient);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+            color: var(--dark-color);
+        }
+
+        body.dark-mode .timeline-title {
+            color: #e2e8f0;
+        }
+
+        .timeline-company {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            color: var(--grey-color);
+            font-size: 0.95rem;
+        }
+
+        /* ==================== PORTFOLIO ==================== */
+        .portfolio-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .filter-button {
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            color: var(--light-text-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            transition: var(--transition);
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .filter-button.active {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+        }
+
+        .filter-button:not(.active):hover {
+            color: var(--accent-color);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .portfolio-item {
+            background: white;
+            border: 1px solid var(--light-grey);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark-mode .portfolio-item {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .portfolio-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--accent-gradient);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .portfolio-item:hover::before {
+            transform: scaleX(1);
+        }
+
+        .portfolio-item h4 {
+            color: var(--dark-color);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        body.dark-mode .portfolio-item h4 {
+            color: #f8fafc;
+        }
+
+        .portfolio-item p {
+            color: var(--grey-color);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .portfolio-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-tag {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* ==================== ACHIEVEMENTS ==================== */
+        .achievement-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--light-grey);
+        }
+
+        body.dark-mode .achievement-card {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .achievement-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--accent-gradient);
+            border-radius: 6px 0 0 6px;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .achievement-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .achievement-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .achievement-date {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .achievement-content h3 {
+            color: var(--dark-color);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+            font-weight: 700;
+        }
+
+        body.dark-mode .achievement-content h3 {
+            color: #f8fafc;
+        }
+
+        .achievement-content p {
+            color: var(--grey-color);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .achievement-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .achievement-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent-color);
+            padding: 0.375rem 0.875rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        body.dark-mode .achievement-tag {
+            background: rgba(99, 102, 241, 0.2);
+            color: #c4b5fd;
+        }
+
+        .achievement-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 40px;
+            height: 40px;
+            background: #ffd700;
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* ==================== CONTACT ==================== */
+        .contact-list {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid var(--light-grey);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body.dark-mode .contact-list {
+            background: #1e293b;
+            border-color: #334155;
+        }
+
+        .contact-list:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .contact-paragraph {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1rem;
+            color: var(--dark-color);
+            margin: 0;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        body.dark-mode .contact-paragraph {
+            color: #e2e8f0;
+        }
+
+        /* ==================== FLOATING BUTTONS (Integrated in Sidebar) ==================== */
+        .fab-container {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .fab {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--accent-gradient);
+            border: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+            font-size: 1.25rem;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .mobile-menu-fab {
+            position: fixed;
+            bottom: 100px;
+            right: 2rem;
+            z-index: 1000;
+            display: none;
+        }
+
+        /* ==================== RESPONSIVE STYLES ==================== */
+        @media (max-width: 1200px) {
+            /* Hide the fixed left navigation column */
+            .col-xl-1 {
+                display: none;
+            }
+
+            /* Adjust main content to take more space when nav is hidden */
+            .col-xl-6.offset-xl-2 {
+                margin-left: 0 !important;
+                padding: 0 1rem;
+            }
+
+            /* Hide the right sidebar on medium screens to prevent clash with fixed nav/fab */
+            .col-xl-3.offset-xl-1 {
+                display: none;
+            }
+
+            /* Show Mobile Navigation/Sidebar Toggle Buttons */
+            .mobile-menu-fab,
+            .offcanvas-btn {
+                display: block;
+            }
+
+            /* Adjust mobile sidebar width */
+            .hero-sidebar {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            /* Mobile FAB container (restores fixed position on mobile) */
+            .fab-container {
+                position: fixed;
+                bottom: 6rem;
+                right: 2rem;
+                z-index: 1000;
+                margin-top: 0;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .fab-container .fab:nth-child(2) { /* Scroll to Top */
+                display: none;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.25rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            /* Fixed bottom navigation for smaller screens (re-introduced here) */
+            .main-navigation-wrapper {
+                position: fixed;
+                bottom: 5.5rem;
+                top: auto;
+                left: 50%;
+                transform: translateX(-50%);
+                width: auto;
+                height: auto;
+                padding: 0;
+                display: block; /* Show on mobile/tablet to replace left side-nav */
+            }
+
+            .nav-pills {
+                flex-direction: row;
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-link {
+                width: 50px;
+                height: 50px;
+                margin: 0 0.5rem;
+                font-size: 1.25rem;
+            }
+
+            .hero-sidebar {
+                width: 100%;
+                max-width: none;
+            }
+
+            .fab-container {
+                bottom: 1rem;
+                right: 1rem;
+            }
+
+            .mobile-menu-fab {
+                bottom: 90px;
+                right: 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .portfolio-filter {
+                justify-content: center;
+            }
+
+            .achievement-container {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline {
+                padding-left: 1.5rem;
+            }
+
+            .timeline-item::before {
+                left: -1.75rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .content-container {
+                padding: 1rem;
+            }
+
+            .portfolio-item,
+            .achievement-card,
+            .contact-list,
+            .timeline-content {
+                padding: 1.5rem;
+            }
+
+            .fab,
+            .mobile-menu-fab .fab {
+                width: 48px;
+                height: 48px;
+                font-size: 1.1rem;
+                bottom: 7.5rem;
+            }
+
+            .mobile-menu-fab {
+                bottom: 80px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* Desktop Layout (Three Columns) */
+        @media (min-width: 1200px) {
+            .main-navigation-wrapper {
+                display: flex; /* Show vertical navigation on desktop */
+            }
+            
+            .col-xl-1 {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            /* Main Content spans correct width to leave space for nav and sidebar */
+            .col-xl-6.offset-xl-2 {
+                /* No offset needed, is the second column now */
+                margin-left: 0 !important;
+            }
+            
+            .col-xl-3.offset-xl-1 {
+                /* No offset needed, is the third column now */
+                margin-left: 0 !important;
+                display: block;
+            }
+            
+            .hero-sidebar {
+                position: sticky;
+                top: 0;
+                height: 100vh;
+                transform: translateX(0);
+                display: block !important;
+                width: 100%; /* Take full width of its column */
+                border-right: none;
+                border-left: 1px solid var(--light-grey);
+                box-shadow: none;
+                background: var(--secondary-color);
+            }
+            
+            body.dark-mode .hero-sidebar {
+                background: var(--secondary-color);
+            }
+
+            .sidebar-close-btn,
+            .mobile-menu-fab,
+            .sidebar-overlay {
+                display: none !important;
+            }
+            
+            .fab-container {
+                /* Reset for desktop: inside sidebar */
+                position: relative;
+                bottom: auto;
+                right: auto;
+                flex-direction: row; /* Horizontal alignment for the buttons inside sidebar */
+                justify-content: center;
+                gap: 1rem;
+            }
+            
+            .fab-container .fab {
+                width: 48px;
+                height: 48px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .portfolio-item,
+        .achievement-card,
+        .timeline-content,
+        .contact-list {
+            animation: fadeInUp 0.6s ease-out;
+            animation-fill-mode: both;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--secondary-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--accent-gradient);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            opacity: 0.8;
+        }
+
+        /* Custom styles for iconify icons */
+        iconify-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-item iconify-icon {
+            color: var(--accent-color);
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+            margin-right: 0;
+            margin-top: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .contact-paragraph iconify-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-icon iconify-icon,
+        .achievement-badge iconify-icon {
+            color: var(--accent-color);
+        }
+    </style>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navigation-bar" tabindex="0">
+<body data-bs-spy="scroll" data-bs-target="#navigation-bar-desktop" tabindex="0">
     <div class="offcanvas-btn text-end m-3">
         <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight"
             aria-controls="offcanvasRight">
             <iconify-icon icon="ci:hamburger-lg" style="font-size: 30px"></iconify-icon>
         </button>
     </div>
+
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasRightLabel">Menu</h5>
             <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                 aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
-            <header class="hero position-fixed">
-                <div class="container hero-container text-center align-content-between">
-                    <div>
-                        <img src="images/carlbrown.png" class="hero-img mb-4 rounded-circle" alt="Priscillia Candra"
-                            width="140" height="140" loading="lazy" />
-
-                        <h2 class="fw-bold">Priscillia Lovemel Candra</h2>
-                        <p>
-                            Undergraduate Computer Science Student | Focus on AI & Machine
-                            Learning
-                        </p>
-                        <div class="social-icon my-2">
-                            <p>
-                                <a class="social-link mx-3"
-                                    href="https://www.linkedin.com/in/priscillia-lovemel-candra-0aaa56281/">
-                                    <iconify-icon icon="icomoon-free:linkedin"></iconify-icon>
-                                </a>
-                                <a class="social-link mx-3" href="https://github.com/PriscilliaCandra">
-                                    <iconify-icon icon="icomoon-free:github"></iconify-icon>
-                                </a>
-                                <a class="social-link mx-3"
-                                    href="https://www.instagram.com/priscilliacandraa?igsh=MTFtM25pNHFlNzJ6aw==">
-                                    <iconify-icon icon="icomoon-free:instagram"></iconify-icon>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            <div class="mobile-nav">
+                <a href="#home" class="mobile-nav-item active" data-bs-dismiss="offcanvas">
+                    <iconify-icon icon="ic:round-home"></iconify-icon>
+                    Home
+                </a>
+                <a href="#about" class="mobile-nav-item" data-bs-dismiss="offcanvas">
+                    <iconify-icon icon="ic:round-person"></iconify-icon>
+                    About
+                </a>
+                <a href="#resume" class="mobile-nav-item" data-bs-dismiss="offcanvas">
+                    <iconify-icon icon="ic:round-school"></iconify-icon>
+                    Resume
+                </a>
+                <a href="#portfolio" class="mobile-nav-item" data-bs-dismiss="offcanvas">
+                    <iconify-icon icon="ic:round-business-center"></iconify-icon>
+                    Portfolio
+                </a>
+                <a href="#achievements" class="mobile-nav-item" data-bs-dismiss="offcanvas">
+                    <iconify-icon icon="ic:round-star-border"></iconify-icon>
+                    Achievements
+                </a>
+                <a href="#contact" class="mobile-nav-item" data-bs-dismiss="offcanvas">
+                    <iconify-icon icon="ic:round-phone"></iconify-icon>
+                    Contact
+                </a>
+            </div>
         </div>
     </div>
 
     <div class="container-fluid">
         <div class="row">
-            <section id="navigation-bar" class="navigation position-fixed">
-                <ul class="nav nav-pills text-center align-items-center mt-5 ms-xl-5 ms-3">
-                    <li>
-                        <a href="#home" class="nav-link active rounded-0" aria-current="page" data-bs-toggle="tooltip"
-                            data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
-                            <iconify-icon icon="ic:round-home"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#about" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Dashboard" data-bs-original-title="Dashboard">
-                            <iconify-icon icon="ic:round-person"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#resume" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Orders" data-bs-original-title="Orders">
-                            <iconify-icon icon="ic:round-school"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#portfolio" class="nav-link rounded-0" data-bs-toggle="tooltip"
-                            data-bs-placement="right" aria-label="Products" data-bs-original-title="Products">
-                            <iconify-icon icon="ic:round-business-center"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#achievements" class="nav-link rounded-0" data-bs-toggle="tooltip"
-                            data-bs-placement="right" aria-label="Customers" data-bs-original-title="Customers">
-                            <iconify-icon icon="ic:round-star-border"></iconify-icon>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#contact" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                            aria-label="Customers" data-bs-original-title="Customers">
-                            <iconify-icon icon="ic:round-phone"></iconify-icon>
-                        </a>
-                    </li>
-                </ul>
-            </section>
+            <div class="col-xl-1">
+                <section id="navigation-bar-desktop" class="main-navigation-wrapper">
+                    <ul class="nav nav-pills text-center align-items-center">
+                        <li>
+                            <a href="#home" class="nav-link active rounded-0" aria-current="page" data-bs-toggle="tooltip"
+                                data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+                                <iconify-icon icon="ic:round-home"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#about" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
+                                aria-label="About" data-bs-original-title="About">
+                                <iconify-icon icon="ic:round-person"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#resume" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
+                                aria-label="Resume" data-bs-original-title="Resume">
+                                <iconify-icon icon="ic:round-school"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#portfolio" class="nav-link rounded-0" data-bs-toggle="tooltip"
+                                data-bs-placement="right" aria-label="Portfolio" data-bs-original-title="Portfolio">
+                                <iconify-icon icon="ic:round-business-center"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#achievements" class="nav-link rounded-0" data-bs-toggle="tooltip"
+                                data-bs-placement="right" aria-label="Achievements" data-bs-original-title="Achievements">
+                                <iconify-icon icon="ic:round-star-border"></iconify-icon>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#contact" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
+                                aria-label="Contact" data-bs-original-title="Contact">
+                                <iconify-icon icon="ic:round-phone"></iconify-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
 
-            <div class="col-xl-6 offset-xl-2">
+            <div class="col-xl-8 col-lg-12">
                 <div class="container content-container">
+                    
                     <section id="home" class="mt-0">
                         <div class="py-lg-4 my-lg-4 text-center">
-                            <h1 class="fw-bold">Hi I’m Priscil</h1>
+                            <h1 class="fw-bold" data-aos="fade-up">Hi I'm Priscil</h1>
                             <div class="col-lg-10 mx-auto">
-                                <p class="lead-paragraph mb-4">
-                                    A Computer Science undergraduate student at Binus
-                                    University, specializing in Artificial Intelligence, Data
-                                    Science, and Web Frontend Development. Passionate about
-                                    leveraging AI and data-driven solutions to solve complex
-                                    problems.
+                                <p class="lead-paragraph mb-4" data-aos="fade-up" data-aos-delay="100">
+                                    A Computer Science undergraduate student at Binus University, specializing in 
+                                    Artificial Intelligence, Data Science, and Web Frontend Development. Passionate about 
+                                    leveraging AI and data-driven solutions to solve complex problems.
                                 </p>
-                                <div class="gap-2 d-sm-flex justify-content-sm-center">
-                                    <button type="button" class="btn btn-primary btn-lg mt-3">
-                                        <a
-                                            href="https://drive.google.com/file/d/1ynV_YYzEEgDH5Mif23BUHV0dYniF4d61/view?usp=sharing">View
-                                            CV</a>
-                                    </button>
-                                    <button type="button" class="btn btn-primary btn-lg mt-3">
-                                        <a
-                                            href="https://drive.google.com/file/d/1VRnYJ3x9sVyEY8Ntb2yIuVlBrKGHgob-/view?usp=sharing">View
-                                            Resume</a>
-                                    </button>
+                                <div class="gap-2 d-sm-flex justify-content-sm-center" data-aos="fade-up" data-aos-delay="200">
+                                    <a href="https://drive.google.com/file/d/1ynV_YYzEEgDH5Mif23BUHV0dYniF4d61/view?usp=sharing" 
+                                       class="btn btn-primary btn-lg mt-3" target="_blank" rel="noopener">
+                                        View CV
+                                    </a>
+                                    <a href="https://drive.google.com/file/d/1VRnYJ3x9sVyEY8Ntb2yIuVlBrKGHgob-/view?usp=sharing" 
+                                       class="btn btn-outline-primary btn-lg mt-3" target="_blank" rel="noopener">
+                                        View Resume
+                                    </a>
                                 </div>
                             </div>
                         </div>
                     </section>
+
                     <section id="about" class="mt-0">
                         <div class="py-4 my-4">
-                            <h1 class="fw-bold mt-5">About Me</h1>
-                            <p class="lead-paragraph my-4">
-                                A highly motivated Computer Science student at Bina Nusantara
-                                University, specializing in Artificial Intelligence, Data
-                                Science, and Web Frontend Development. Passionate about
-                                leveraging AI and data-driven solutions to solve complex
-                                problems and enhance user experiences through intelligent
-                                systems. Proficient in Python and frameworks like Laravel for
-                                frontend development, and a user interface designer.
-                                Experienced in machine learning, data analytics, and model
-                                deployment. Skilled in problem-solving, team collaboration,
-                                and project execution. Actively involved in leadership and
-                                extracurricular activities, including Freshmen Partner &
-                                Freshmen Leader, as well as the university's Basketball Team.
-                                Always eager to learn, innovate, and contribute to
-                                cutting-edge technology solutions.
+                            <h1 class="fw-bold mt-5" data-aos="fade-up">About Me</h1>
+                            <p class="lead-paragraph my-4" data-aos="fade-up" data-aos-delay="100">
+                                A highly motivated Computer Science student at Bina Nusantara University, specializing 
+                                in Artificial Intelligence, Data Science, and Web Frontend Development. Passionate about 
+                                leveraging AI and data-driven solutions to solve complex problems and enhance user 
+                                experiences through intelligent systems. Proficient in Python and frameworks like Laravel 
+                                for frontend development. Experienced in machine learning, data analytics, and model 
+                                deployment. Skilled in problem-solving, team collaboration, and project execution. 
+                                Always eager to learn, innovate, and contribute to cutting-edge technology solutions.
                             </p>
                         </div>
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
-                            <h2 class="fw-bold">Personal Info</h2>
-                            <ul class="list-unstyled">
+                            <h2 class="fw-bold" data-aos="fade-up">Personal Info</h2>
+                            <ul class="list-unstyled" data-aos="fade-up" data-aos-delay="100">
                                 <li><b>Age:</b> 20</li>
                                 <li><b>Residence:</b> West Jakarta, Indonesia</li>
                                 <li><b>E-mail:</b> priscillia.candra@binus.ac.id</li>
@@ -167,50 +1404,58 @@
                         </div>
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
-                            <h2 class="fw-bold pt-4 pb-5">Services</h2>
+                            <h2 class="fw-bold pt-4 pb-5" data-aos="fade-up">Services</h2>
                             <div class="row row-cols-1 row-cols-sm-2">
-                                <div class="col d-flex align-items-start pb-5">
-                                    <img src="images/browser page account.png" alt="image" />
+                                <div class="col d-flex align-items-start pb-5" data-aos="fade-up">
+                                    <div class="service-icon me-4">
+                                        <iconify-icon icon="ph:cpu" style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
+                                    </div>
                                     <div>
                                         <h4 class="fw-bold mb-0">Artificial Intelligence (AI)</h4>
                                         <p class="mb-1">
                                             The development and application of innovative AI models to solve complex
                                             problems and enhance system efficiency.
                                         </p>
-                                        <a href="#portfolio" class="icon-link text-black fs-6 mt-0">View Projects</a>
+                                        <a href="#portfolio" class="icon-link fs-6 mt-0">View Projects</a>
                                     </div>
                                 </div>
-                                <div class="col d-flex align-items-start pb-5">
-                                    <img src="images/shipment upload.png" alt="image" />
+                                <div class="col d-flex align-items-start pb-5" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="service-icon me-4">
+                                        <iconify-icon icon="ph:brain" style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
+                                    </div>
                                     <div>
                                         <h4 class="fw-bold mb-0">Machine Learning</h4>
                                         <p class="mb-1">
                                             Building Machine Learning models and conducting data analysis to gain
                                             valuable insights, supporting data-driven decision making.
                                         </p>
-                                        <a href="#portfolio" class="icon-link text-black fs-6 mt-0">View Projects</a>
+                                        <a href="#portfolio" class="icon-link fs-6 mt-0">View Projects</a>
                                     </div>
                                 </div>
-                                <div class="col d-flex align-items-start pb-5">
-                                    <img src="images/shirt plain.png" alt="image" />
+                                <div class="col d-flex align-items-start pb-5" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="service-icon me-4">
+                                        <iconify-icon icon="ph:code" style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
+                                    </div>
                                     <div>
                                         <h4 class="fw-bold mb-0">Web Frontend Development</h4>
                                         <p class="mb-1">
                                             Web application development from the frontend (UI/UX) to the backend (logic
                                             and database) using modern frameworks like Laravel.
                                         </p>
-                                        <a href="#portfolio" class="icon-link text-black fs-6 mt-0">View Projects</a>
+                                        <a href="#portfolio" class="icon-link fs-6 mt-0">View Projects</a>
                                     </div>
                                 </div>
-                                <div class="col d-flex align-items-start pb-5">
-                                    <img src="images/video game logo companion cube.png" alt="image" />
+                                <div class="col d-flex align-items-start pb-5" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="service-icon me-4">
+                                        <iconify-icon icon="ph:chat-text" style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
+                                    </div>
                                     <div>
                                         <h4 class="fw-bold mb-0">NLP</h4>
                                         <p class="mb-1">
                                             Building systems that understand, interpret, and generate human language,
                                             such as text classification applications or chatbots.
                                         </p>
-                                        <a href="#portfolio" class="icon-link text-black fs-6 mt-0">View Projects</a>
+                                        <a href="#portfolio" class="icon-link fs-6 mt-0">View Projects</a>
                                     </div>
                                 </div>
                             </div>
@@ -220,103 +1465,91 @@
 
                     <section id="resume">
                         <div class="py-4 my-4">
-                            <h1 class="fw-bold mt-5">Resume</h1>
+                            <h1 class="fw-bold mt-5" data-aos="fade-up">Resume</h1>
                         </div>
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
-                            <h2 class="fw-bold pb-4">My Skills</h2>
+                            <h2 class="fw-bold pb-4" data-aos="fade-up">My Skills</h2>
                             <div id="progressbar-tooltip-id" class="progressbar-tooltip">
-                                <h4>Python</h4>
-                                <div class="ab-progress progress-tooltip" data-progress data-tooltip="true"
-                                    data-value="95" data-title=""></div>
-                                <h4>Laravel (PHP Framework)</h4>
-                                <div class="ab-progress progress-tooltip" data-progress data-tooltip="true"
-                                    data-value="90" data-title=""></div>
-                                <h4>SQL</h4>
-                                <div class="ab-progress progress-tooltip" data-progress data-tooltip="true"
-                                    data-value="85" data-title=""></div>
-                                <h4>Machine Learning & Deep Learning</h4>
-                                <div class="ab-progress progress-tooltip" data-progress data-tooltip="true"
-                                    data-value="90" data-title=""></div>
-                                <h4>Vue JS</h4>
-                                <div class="ab-progress progress-tooltip" data-progress data-tooltip="true"
-                                    data-value="80" data-title=""></div>
+                                <div data-aos="fade-up">
+                                    <h4>Python</h4>
+                                    <div class="progress-bar-wrap">
+                                        <div class="ab-progress-bar" style="width: 95%"></div>
+                                    </div>
+                                </div>
+                                <div data-aos="fade-up" data-aos-delay="100">
+                                    <h4>Laravel (PHP Framework)</h4>
+                                    <div class="progress-bar-wrap">
+                                        <div class="ab-progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div data-aos="fade-up" data-aos-delay="200">
+                                    <h4>SQL</h4>
+                                    <div class="progress-bar-wrap">
+                                        <div class="ab-progress-bar" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                                <div data-aos="fade-up" data-aos-delay="300">
+                                    <h4>Machine Learning & Deep Learning</h4>
+                                    <div class="progress-bar-wrap">
+                                        <div class="ab-progress-bar" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                                <div data-aos="fade-up" data-aos-delay="400">
+                                    <h4>Vue JS</h4>
+                                    <div class="progress-bar-wrap">
+                                        <div class="ab-progress-bar" style="width: 80%"></div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
-                            <h2 class="fw-bold pb-4">Experience</h2>
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info">
-                                        <p class="meta-date">
-                                            Feb 2024 - Feb 2025<img src="images/Ellipse 7.png" alt="image" />
-                                            <a class="open-description">UREEKA Binus</a>
-                                        </p>
-                                        <h3 class="info-title">UREEKA Active Member</h3>
-                                        <p>
-                                            UREEKA is a software development community at Bina
-                                            Nusantara University (BINUS) that focuses on fostering
-                                            students' skills in application and software
-                                            development. Members receive training and coaching,
-                                            participate in both national and international
-                                            competitions, and build portfolios as application
-                                            developers.
+                            <h2 class="fw-bold pb-4" data-aos="fade-up">Experience</h2>
+                            <div class="timeline">
+                                <div class="timeline-item" data-aos="fade-up">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Feb 2024 - Feb 2025</span>
+                                        <h3 class="timeline-title">UREEKA Active Member</h3>
+                                        <p class="timeline-company">UREEKA Binus</p>
+                                        <p class="timeline-description">
+                                            UREEKA is a software development community at Bina Nusantara University 
+                                            (BINUS) that focuses on fostering students' skills in application and 
+                                            software development.
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row justify-content-end" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info">
-                                        <p class="meta-date">
-                                            Sep 2024 - Feb 2025
-                                            <img src="images/Ellipse 7.png" alt="image" />
-                                            <a class="open-description">SASC Mentoring Scholarship</a>
-                                        </p>
-                                        <h3 class="info-title">
-                                            SASC Education Mentor (Part-time)
-                                        </h3>
-                                        <p>
-                                            Awarded the Mentoring SASC BINUS Scholarship (2024-2025)
-                                            for academic excellence (GPA > 3.5). Responsible for guiding students with
-                                            academic challenges to improve their performance and adapt to university
-                                            learning standards.
+                                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Sep 2024 - Feb 2025</span>
+                                        <h3 class="timeline-title">SASC Education Mentor (Part-time)</h3>
+                                        <p class="timeline-company">SASC Mentoring Scholarship</p>
+                                        <p class="timeline-description">
+                                            Awarded the Mentoring SASC BINUS Scholarship for academic excellence (GPA > 3.5). 
+                                            Responsible for guiding students with academic challenges.
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info">
-                                        <p class="meta-date">
-                                            Sep 2024 - Jun 2025
-                                            <img src="images/Ellipse 7.png" alt="image" />
-                                            <a class="open-description">FYP Binus University </a>
-                                        </p>
-                                        <h3 class="info-title">Freshmen Partner</h3>
-                                        <p>
+                                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Sep 2024 - Jun 2025</span>
+                                        <h3 class="timeline-title">Freshmen Partner</h3>
+                                        <p class="timeline-company">FYP Binus University</p>
+                                        <p class="timeline-description">
                                             Collaborated with first-year students to support their academic, social, and
-                                            personal transition into college. Served as a peer mentor, offering
-                                            guidance, sharing campus resources, and fostering a sense of belonging.
+                                            personal transition into college.
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row justify-content-end" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info">
-                                        <p class="meta-date">
-                                            Jul 2024 - Sep 2024
-                                            <img src="images/Ellipse 7.png" alt="image" />
-                                            <a class="open-description">FYP Binus University</a>
-                                        </p>
-                                        <h3 class="info-title">Freshmen Leader</h3>
-                                        <p>
+                                <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Jul 2024 - Sep 2024</span>
+                                        <h3 class="timeline-title">Freshmen Leader</h3>
+                                        <p class="timeline-company">FYP Binus University</p>
+                                        <p class="timeline-description">
                                             Served as a mentor and guide for first-year students, helping them navigate
-                                            their transition into college life. Provided support by fostering a
-                                            welcoming community and encouraging student engagement.
+                                            their transition into college life.
                                         </p>
                                     </div>
                                 </div>
@@ -325,56 +1558,36 @@
 
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
-                            <h2 class="fw-bold pb-4">Education</h2>
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info">
-                                        <p class="meta-date">
-                                            Sep 2023 - Sep 2027<img src="images/Ellipse 7.png" alt="image" />
-                                            <a class="open-description">Binus University</a>
-                                        </p>
-                                        <h3 class="info-title">
-                                            Bachelor of Computer Science, Intelligent Systems Specialization
-                                        </h3>
-                                        <p>
-                                            Pursuing a Bachelor's degree in Computer Science with a
-                                            specialization in Intelligent Systems. Actively involved in
-                                            student leadership and extracurricular activities: Freshmen Leader, Freshmen
-                                            Partner, and the university's Basketball Team. Passionate about artificial
-                                            intelligence, machine learning, and problem-solving.
+                            <h2 class="fw-bold pb-4" data-aos="fade-up">Education</h2>
+                            <div class="timeline">
+                                <div class="timeline-item" data-aos="fade-up">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Sep 2023 - Sep 2027</span>
+                                        <h3 class="timeline-title">Bachelor of Computer Science</h3>
+                                        <p class="timeline-company">Binus University</p>
+                                        <p class="timeline-description">
+                                            Intelligent Systems Specialization. Actively involved in student leadership 
+                                            and extracurricular activities.
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row justify-content-end" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info">
-                                        <p class="meta-date">
-                                            Mar 2024 <img src="images/Ellipse 7.png" alt="image" />
-                                            <a class="open-description">Dicoding Academy</a>
-                                        </p>
-                                        <h3 class="info-title">
-                                            Machine Learning / Deep Learning
-                                        </h3>
-                                        <p>
+                                <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Mar 2024</span>
+                                        <h3 class="timeline-title">Machine Learning / Deep Learning</h3>
+                                        <p class="timeline-company">Dicoding Academy</p>
+                                        <p class="timeline-description">
                                             Learned the fundamentals of machine learning with a focus on supervised
-                                            learning,
-                                            unsupervised learning, and techniques to improve model performance.
+                                            learning, unsupervised learning, and techniques to improve model performance.
                                         </p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row justify-content-start" data-aos="fade-up">
-                                <div class="col-7">
-                                    <div class="data-info">
-                                        <p class="meta-date">
-                                            Jul 2020 - May 2023 <img src="images/Ellipse 7.png" alt="image" />
-                                            <a class="open-description">SMA Mahatma Gading</a>
-                                        </p>
-                                        <h3 class="info-title">
-                                            Senior High School
-                                        </h3>
-                                        <p>
+                                <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="timeline-content">
+                                        <span class="timeline-date">Jul 2020 - May 2023</span>
+                                        <h3 class="timeline-title">Senior High School</h3>
+                                        <p class="timeline-company">SMA Mahatma Gading</p>
+                                        <p class="timeline-description">
                                             Completed senior high school education with a focus on science major,
                                             actively participating in academic and extracurricular activities.
                                         </p>
@@ -386,12 +1599,12 @@
 
                     <section id="portfolio">
                         <div class="py-4 my-4">
-                            <h1 class="fw-bold mt-5">Portfolio</h1>
+                            <h1 class="fw-bold mt-5" data-aos="fade-up">Portfolio</h1>
                         </div>
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
-                            <div class="mb-5">
-                                <p>
+                            <div class="mb-5" data-aos="fade-up">
+                                <div class="portfolio-filter">
                                     <button class="filter-button active" data-filter="*">
                                         All
                                     </button>
@@ -404,223 +1617,197 @@
                                     <button class="filter-button" data-filter=".web-dev">
                                         Web Dev
                                     </button>
-                                </p>
+                                </div>
                             </div>
-                                <div class="row g-4 portfolio-list">
-                                    <div class="col-md-6 item web-dev nlp">
-                                        <div class="portfolio-item p-4 border rounded">
-                                            <h4>AI Fitness Chatbot using Vue.JS & FastAPI Python</h4>
-                                            <p class="mb-2">I developed a full-stack AI Fitness Coach project that generates
-                                                personalized workouts, diet plans, recipes, portion sizing, and weekly
-                                                grocery lists based on user goals such as muscle gain, fat loss, or
-                                                maintenance. The app is built using FastAPI (Python) for the backend with a
-                                                nutrition engine for calorie and macro calculation alongside meal portion
-                                                modeling, Vue.js + Bootstrap for the frontend, and SQLite with JWT
-                                                authentication for data handling and security. Core features include
-                                                automated weekly diet plan generation, macro-based portion calculation,
-                                                step-by-step meal recipes, grocery list aggregation, workout scheduling,
-                                                weight progress prediction, and interactive fitness chatbot.</p>
-                                            <a href="https://github.com/PriscilliaCandra/fitness_chatbot"
-                                                class="text-primary icon-link">View on GitHub</a>
+                            <div class="row g-4 portfolio-list">
+                                <div class="col-md-6 item web-dev nlp" data-aos="fade-up">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">Web Dev</span>
+                                            <span class="portfolio-tag">NLP</span>
                                         </div>
+                                        <h4>AI Fitness Chatbot using Vue.JS & FastAPI Python</h4>
+                                        <p>Full-stack AI Fitness Coach that generates personalized workouts, diet plans, 
+                                           recipes, portion sizing, and weekly grocery lists based on user goals.</p>
+                                        <a href="https://github.com/PriscilliaCandra/fitness_chatbot" class="icon-link" target="_blank">
+                                            View on GitHub
+                                        </a>
                                     </div>
-                                    <div class="col-md-6 item machine-learning nlp">
-                                        <div class="portfolio-item p-4 border rounded">
-                                            <h4>Document Classification App using Machine Learning & NLP</h4>
-                                            <p class="mb-2">I developed a Streamlit application that automatically
-                                                classifies and clusters documents (.txt, .pdf, .docx, .html) using
-                                                machine
-                                                learning with TF-IDF and a Logistic Regression model. The app features
-                                                custom text preprocessing, supports multiple file formats, and provides
-                                                an
-                                                interactive web interface for ease of use. This project aims to make
-                                                document categorization and analysis more accessible, especially for
-                                                NLP,
-                                                document management, and data exploration tasks.</p>
-                                            <a href="https://github.com/PriscilliaCandra/document_clustering_nlp"
-                                                class="text-primary icon-link">View on GitHub</a>
+                                </div>
+                                <div class="col-md-6 item machine-learning nlp" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">ML</span>
+                                            <span class="portfolio-tag">NLP</span>
                                         </div>
+                                        <h4>Document Classification App using Machine Learning & NLP</h4>
+                                        <p>Streamlit application that automatically classifies and clusters documents 
+                                           using machine learning with TF-IDF and Logistic Regression model.</p>
+                                        <a href="https://github.com/PriscilliaCandra/document_clustering_nlp" class="icon-link" target="_blank">
+                                            View on GitHub
+                                        </a>
                                     </div>
-                                    <div class="col-md-6 item web-dev">
-                                        <div class="portfolio-item p-4 border rounded">
-                                            <h4>Student Payment Management System</h4>
-                                            <p class="mb-2">I developed a web-based Student Payment Management System to
-                                                streamline student enrollments, payments, and batch assignments for an
-                                                educational institution. The system features automated PDF receipt
-                                                generation, enrollment and payment tracking with relational data, and a
-                                                responsive UI built with Blade Templates and Bootstrap. This project
-                                                strengthened my skills in Laravel, PHP, and SQL, while giving me
-                                                hands-on
-                                                experience in implementing end-to-end backend logic and generating
-                                                professional in-app documents.</p>
-                                            <a href="https://github.com/PriscilliaCandra/student-management-system"
-                                                class="text-primary icon-link">View on GitHub</a>
+                                </div>
+                                <div class="col-md-6 item web-dev" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">Web Dev</span>
                                         </div>
+                                        <h4>Student Payment Management System</h4>
+                                        <p>Web-based system to streamline student enrollments, payments, and batch 
+                                           assignments with automated PDF receipt generation.</p>
+                                        <a href="https://github.com/PriscilliaCandra/student-management-system" class="icon-link" target="_blank">
+                                            View on GitHub
+                                        </a>
                                     </div>
-                                    <div class="col-md-6 item machine-learning">
-                                        <div class="portfolio-item p-4 border rounded">
-                                            <h4>Health Prediction (Diabetes & Heart Disease)</h4>
-                                            <p class="mb-2">I built a Health Prediction application that estimates the
-                                                risk
-                                                of diabetes and heart disease based on user-provided health parameters.
-                                                The
-                                                system leverages a trained Random Forest Classifier and presents results
-                                                through clear interactive visualizations. Developed with Streamlit, the
-                                                app
-                                                offers a simple and user-friendly interface for accessible health
-                                                insights.
-                                            </p>
-                                            <a href="https://github.com/PriscilliaCandra/health_prediction"
-                                                class="text-primary icon-link">View on GitHub</a>
+                                </div>
+                                <div class="col-md-6 item machine-learning" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">ML</span>
                                         </div>
+                                        <h4>Health Prediction (Diabetes & Heart Disease)</h4>
+                                        <p>Health Prediction application that estimates the risk of diabetes and 
+                                           heart disease using Random Forest Classifier.</p>
+                                        <a href="https://github.com/PriscilliaCandra/health_prediction" class="icon-link" target="_blank">
+                                            View on GitHub
+                                        </a>
                                     </div>
-                                    <div class="col-md-6 item machine-learning">
-                                        <div class="portfolio-item p-4 border rounded">
-                                            <h4>Population Prediction App</h4>
-                                            <p class="mb-2">I developed a Population Prediction App that forecasts a
-                                                country’s population based on the selected year and country using a
-                                                Linear
-                                                Regression model. The application features an interactive bar chart for
-                                                visualizing predictions and a simple, user-friendly Streamlit interface.
-                                                It
-                                                combines web scraping, data manipulation, and machine learning to
-                                                deliver
-                                                accurate and accessible population insights.</p>
-                                            <a href="https://github.com/PriscilliaCandra/population_prediction"
-                                                class="text-primary icon-link">View on GitHub</a>
+                                </div>
+                                <div class="col-md-6 item machine-learning" data-aos="fade-up">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">ML</span>
                                         </div>
+                                        <h4>Population Prediction App</h4>
+                                        <p>Population Prediction App that forecasts country's population based on 
+                                           selected year and country using Linear Regression model.</p>
+                                        <a href="https://github.com/PriscilliaCandra/population_prediction" class="icon-link" target="_blank">
+                                            View on GitHub
+                                        </a>
                                     </div>
-                                    <div class="col-md-6 item machine-learning">
-                                        <div class="portfolio-item p-4 border rounded">
-                                            <h4>Price Comparison using Python</h4>
-                                            <p class="mb-2">An application that allows users to compare product prices
-                                                across
-                                                e-commerce platforms like Tokopedia, supporting both image and text
-                                                inputs.
-                                                The
-                                                system classifies products, searches marketplaces, and displays the
-                                                cheapest
-                                                option
-                                                with a direct purchase link, while also saving results for future
-                                                reference.
-                                                Built
-                                                with Deep Learning, Streamlit, and Web Scraping, this project provides a
-                                                practical
-                                                solution for smarter online shopping.</p>
-                                            <a href="https://github.com/PriscilliaCandra/comparing_price"
-                                                class="text-primary icon-link">View on GitHub</a>
+                                </div>
+                                <div class="col-md-6 item machine-learning" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">ML</span>
                                         </div>
+                                        <h4>Price Comparison using Python</h4>
+                                        <p>Application that allows users to compare product prices across e-commerce 
+                                           platforms using Deep Learning and Web Scraping.</p>
+                                        <a href="https://github.com/PriscilliaCandra/comparing_price" class="icon-link" target="_blank">
+                                            View on GitHub
+                                        </a>
                                     </div>
-                                    <div class="col-md-6 item web-dev">
-                                        <div class="portfolio-item p-4 border rounded">
-                                            <h4>EduMatch</h4>
-                                            <p class="mb-2">I built a Career Guidance Chatbot web application to help
-                                                high
-                                                school students explore their interests, personality, and potential
-                                                university majors. The system features a gamified RIASEC test,
-                                                personalized
-                                                major and university recommendations, and an AI-powered chatbot for
-                                                interactive Q\&A about campus life and career paths. Developed with
-                                                Laravel,
-                                                JWT authentication, and Bootstrap, it provides a responsive and engaging
-                                                platform for students to plan their academic future.</p>
-                                            <a href="https://github.com/PriscilliaCandra/edumatch"
-                                                class="text-primary icon-link">View on GitHub</a>
+                                </div>
+                                <div class="col-md-6 item web-dev" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">Web Dev</span>
                                         </div>
+                                        <h4>EduMatch</h4>
+                                        <p>Career Guidance Chatbot web application to help high school students explore 
+                                           their interests, personality, and potential university majors.</p>
+                                        <a href="https://github.com/PriscilliaCandra/edumatch" class="icon-link" target="_blank">
+                                            View on GitHub
+                                        </a>
                                     </div>
-                                    <div class="col-md-6 item web-dev">
-                                        <div class="portfolio-item p-4 border rounded">
-                                            <h4>Rental Car Web</h4>
-                                            <p class="mb-2">I developed a Rent Car Website that enables users to browse
-                                                cars, rent vehicles online, and track detailed payment history for each
-                                                transaction. The system includes user authentication, rental management
-                                                with
-                                                automatic pricing, an admin dashboard, and a responsive UI built with
-                                                Blade
-                                                and Bootstrap. This project strengthened my skills in Laravel, PHP,
-                                                MySQL,
-                                                and Bootstrap while implementing clear database relationships and
-                                                backend
-                                                logic.</p>
-                                            <a href="https://github.com/PriscilliaCandra/rent-car"
-                                                class="text-primary icon-link">View on GitHub</a>
+                                </div>
+                                <div class="col-md-6 item web-dev" data-aos="fade-up" data-aos-delay="300">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">Web Dev</span>
                                         </div>
-                                    </div>
-                                    <div class="col-md-6 item web-dev">
-                                        <div class="portfolio-item p-4 border rounded">
-                                            <h4>Job Portal App</h4>
-                                            <p class="mb-2">A web-based job portal application built with Laravel that
-                                                allows employers to post and manage job listings while enabling job
-                                                seekers
-                                                to browse and apply online. It features custom authentication,
-                                                role-based
-                                                access for employers and job seekers, and a modern, responsive UI built
-                                                with
-                                                Bootstrap. The application is powered by Laravel (PHP 8+), Blade,
-                                                Bootstrap
-                                                5, and MySQL.</p>
-                                            <a href="https://github.com/PriscilliaCandra/job-portal-laravel"
-                                                class="text-primary icon-link">View on GitHub</a>
-                                        </div>
+                                        <h4>Rental Car Web</h4>
+                                        <p>Rent Car Website that enables users to browse cars, rent vehicles online, 
+                                           and track detailed payment history for each transaction.</p>
+                                        <a href="https://github.com/PriscilliaCandra/rent-car" class="icon-link" target="_blank">
+                                            View on GitHub
+                                        </a>
                                     </div>
                                 </div>
                             </div>
+                        </div>
                     </section>
 
                     <section id="achievements">
                         <div class="py-4 my-4">
-                            <h1 class="fw-bold mt-5">Honors & Awards</h1>
+                            <h1 class="fw-bold mt-5" data-aos="fade-up">Honors & Achievements</h1>
                         </div>
-
                         <hr class="mid-break my-2" />
-                        <div class="container py-4 my-4">
-                            <div class="row achievement-container">
-                                <article class="col-md-6 d-flex align-items-start mb-4">
-                                    <div class="achievement-content">
-                                        <p class="meta-date">June 2024 <span class="text-muted d-block">Microsoft & SOCS
-                                                Binus</span></p>
-                                        <h3 class="info-title">Grand Finalist Hackathon AI 2024 x Microsoft</h3>
-                                        <p>Selected as one of the Grand Finalists in the SOCS Binus Hackathon AI 2024.
-                                            Collaborated in a multidisciplinary team to design and develop an AI-powered
-                                            solution. Recognized for innovation, technical execution, and presentation
-                                            quality.</p>
+                        <div class="py-4 my-4">
+                            <div class="row g-4 portfolio-list">
+                                <div class="col-md-6" data-aos="fade-up">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">June 2024</span>
+                                        </div>
+                                        <h4>Grand Finalist Hackathon AI 2024 x Microsoft</h4>
+                                        <p>Selected as one of the Grand Finalists in the SOCS Binus Hackathon AI
+                                                2024. Collaborated in a multidisciplinary team to design and develop an
+                                                AI-powered solution. Recognized for innovation, technical execution, and
+                                                presentation quality.</p>
+                                        <a href="#" class="icon-link" target="_blank">
+                                            <iconify-icon icon="ph:crown-fill"></iconify-icon>
+                                        </a>
                                     </div>
-                                </article>
-                                <article class="col-md-6 d-flex align-items-start mb-4">
-                                    <div class="achievement-content">
-                                        <p class="meta-date">June 2025 <span class="text-muted d-block">Student
-                                                Invitation Athletics 2025</span></p>
-                                        <h3 class="info-title">Athletics - 1500m Running (Women’s Category)</h3>
+                                </div>
+                                <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">June 2025</span>
+                                        </div>
+                                        <h4>Athletics - 1500m Running (Women's Category)</h4>
                                         <p>Achieved 2nd Place in the 1500m running competition, representing my
-                                            university at the city-level student sports invitational. This achievement
-                                            reflects my commitment to discipline, perseverance, and time management.</p>
+                                                university at the city-level student sports invitational. This
+                                                achievement reflects my commitment to discipline, perseverance, and time
+                                                management.</p>
+                                        <a href="#" class="icon-link" target="_blank">
+                                            <iconify-icon icon="ph:medal-fill"></iconify-icon>
+                                        </a>
                                     </div>
-                                </article>
+                                </div>
+                                <div class="col-md-6 item web-dev" data-aos="fade-up" data-aos-delay="200">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-tags">
+                                            <span class="portfolio-tag">Sept 2025</span>
+                                        </div>
+                                        <h4>Paper Acceptance & Presentation – International Conference on Cyber Information and Communication Systems (ICoCICs)</h4>
+                                        <p>Awarded for having my research paper, “Classification VS Few-Shot-Learning Model 
+                                            for Translating Sign to Speech,” accepted and presented at the ICoCICs 
+                                            international conference. The paper explores the comparison between CNN and 
+                                            Few-Shot Learning (Prototypical Network) for real-time ASL gesture recognition 
+                                            and translation.</p>
+                                        <a href="#" class="icon-link" target="_blank">
+                                            <iconify-icon icon="ph:star-fill"></iconify-icon>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
 
                     <section id="contact">
                         <div class="py-4 my-4">
-                            <h1 class="fw-bold mt-5">Contact</h1>
-                            <p>Wanna talk about project, please feel free to contact us.</p>
+                            <h1 class="fw-bold mt-5" data-aos="fade-up">Contact</h1>
+                            <p data-aos="fade-up" data-aos-delay="100">Wanna talk about project, please feel free to contact us.</p>
                         </div>
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
                             <div class="row justify-content-around">
-                                <div class="col-md-4 contact-list">
+                                <div class="col-md-4 contact-list" data-aos="fade-up">
                                     <p class="contact-paragraph">
                                         <iconify-icon icon="ic:outline-phone"></iconify-icon>
                                         +628118131010
                                     </p>
                                 </div>
-                                <div class="col-md-4 contact-list">
+                                <div class="col-md-4 contact-list" data-aos="fade-up" data-aos-delay="100">
                                     <p class="contact-paragraph">
                                         <iconify-icon icon="ic:outline-email"></iconify-icon>
                                         priscillia.candra@binus.ac.id
                                     </p>
                                 </div>
-                                <div class="col-md-4 contact-list">
+                                <div class="col-md-4 contact-list" data-aos="fade-up" data-aos-delay="200">
                                     <p class="contact-paragraph">
                                         <iconify-icon icon="ic:outline-location-on"></iconify-icon>
                                         West Jakarta, DKI Jakarta
@@ -632,49 +1819,295 @@
                 </div>
             </div>
 
-            <div class="hero-sidebar col-xl-3 offset-xl-1">
-                <header class="hero position-fixed">
-                    <div class="container hero-container text-center my-4 pt-3 align-content-between">
-                        <div>
-                            <img src="/images/profile.jpeg" class="hero-img mb-4 rounded-circle" alt="Priscillia Candra"
-                                width="140" height="140" loading="lazy" />
-
-                            <h2 class="fw-bold mt-3">Priscillia Lovemel Candra</h2>
-                            <p>
-                                Undergraduate Computer Science Binus University Student |
-                                Focus on AI & Machine Learning
-                            </p>
-                            <div class="social-icon my-3">
-                                <p>
-                                    <a class="social-link mx-3"
-                                        href="https://www.linkedin.com/in/priscillia-lovemel-candra-0aaa56281/">
-                                        <iconify-icon icon="icomoon-free:linkedin"></iconify-icon>
-                                    </a>
-                                    <a class="social-link mx-3" href="https://github.com/PriscilliaCandra">
-                                        <iconify-icon icon="icomoon-free:github"></iconify-icon>
-                                    </a>
-                                    <a class="social-link mx-3"
-                                        href="https://www.instagram.com/priscilliacandraa?igsh=MTFtM25pNHFlNzJ6aw==">
-                                        <iconify-icon icon="icomoon-free:instagram"></iconify-icon>
-                                    </a>
-                                </p>
+            <div class="col-xl-3 col-lg-12">
+                <div class="hero-sidebar">
+                    <button class="sidebar-close-btn d-lg-none" id="closeSidebar">
+                        <iconify-icon icon="ph:x-fill"></iconify-icon>
+                    </button>
+                    <div class="sidebar-content">
+                        <img src="/images/profile.jpeg" class="hero-img mb-4" alt="Priscillia Candra" loading="lazy" />
+                        
+                        <h2 class="fw-bold">Priscillia Lovemel Candra</h2>
+                        <p class="sidebar-subtitle">
+                            Undergraduate Computer Science Binus University Student |
+                            Focus on AI & Data Analyst
+                        </p>
+                        
+                        <div class="social-icon">
+                            <div class="d-flex justify-content-center gap-3">
+                                <a class="social-link" href="https://www.linkedin.com/in/priscillia-lovemel-candra-0aaa56281/" target="_blank" rel="noopener">
+                                    <iconify-icon icon="icomoon-free:linkedin"></iconify-icon>
+                                </a>
+                                <a class="social-link" href="https://github.com/PriscilliaCandra" target="_blank" rel="noopener">
+                                    <iconify-icon icon="icomoon-free:github"></iconify-icon>
+                                </a>
+                                <a class="social-link" href="https://www.instagram.com/priscilliacandraa" target="_blank" rel="noopener">
+                                    <iconify-icon icon="icomoon-free:instagram"></iconify-icon>
+                                </a>
                             </div>
+                        </div>
+                        
+                        <div class="sidebar-info">
+                            <div class="info-item">
+                                <iconify-icon icon="ic:outline-location-on"></iconify-icon>
+                                <div class="info-content">
+                                    <h6>Location</h6>
+                                    <p>West Jakarta, Indonesia</p>
+                                </d-f>
+                            </div>
+                            <div class="info-item">
+                                <iconify-icon icon="ic:outline-email"></iconify-icon>
+                                <div class="info-content">
+                                    <h6>Email</h6>
+                                    <p>priscillia.candra@binus.ac.id</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <iconify-icon icon="ic:outline-phone"></iconify-icon>
+                                <div class="info-content">
+                                    <h6>Phone</h6>
+                                    <p>+62 811 8131 010</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <iconify-icon icon="ic:round-school"></iconify-icon>
+                                <div class="info-content">
+                                    <h6>Education</h6>
+                                    <p>Bina Nusantara University</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="download-buttons">
+                            <a href="https://drive.google.com/file/d/1ynV_YYzEEgDH5Mif23BUHV0dYniF4d61/view?usp=sharing" 
+                               class="download-btn" target="_blank" rel="noopener">
+                                <iconify-icon icon="ic:outline-description"></iconify-icon>
+                                Download CV
+                            </a>
+                            <a href="https://drive.google.com/file/d/1VRnYJ3x9sVyEY8Ntb2yIuVlBrKGHgob-/view?usp=sharing" 
+                               class="download-btn" target="_blank" rel="noopener">
+                                <iconify-icon icon="ic:outline-file-present"></iconify-icon>
+                                Download Resume
+                            </a>
+                        </div>
 
+                        <div class="fab-container">
+                            <button class="fab" id="themeToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Theme">
+                                <iconify-icon icon="ph:sun-duotone"></iconify-icon>
+                            </button>
+                            <button class="fab" id="scrollToTop" data-bs-toggle="tooltip" data-bs-placement="left" title="Scroll to Top">
+                                <iconify-icon icon="ph:arrow-up-duotone"></iconify-icon>
+                            </button>
                         </div>
                     </div>
-                </header>
+                </div>
             </div>
         </div>
     </div>
 
-    <script src="js/jquery-1.11.0.min.js"></script>
-    <script src="js/plugins.js"></script>
-    <script src="js/script.js"></script>
+    <div class="mobile-menu-fab d-lg-none">
+        <button class="fab" id="sidebarToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Open Profile">
+            <iconify-icon icon="ph:user-circle-fill"></iconify-icon>
+        </button>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chocolat@1.0.1/dist/js/chocolat.min.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
 
+        // Sidebar toggle for mobile
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebarToggle = document.getElementById('sidebarToggle');
+            const closeSidebar = document.getElementById('closeSidebar');
+            const sidebarOverlay = document.getElementById('sidebarOverlay');
+            const heroSidebar = document.querySelector('.hero-sidebar');
+
+            console.log('Elements found:', { 
+                sidebarToggle: !!sidebarToggle, 
+                closeSidebar: !!closeSidebar,
+                sidebarOverlay: !!sidebarOverlay,
+                heroSidebar: !!heroSidebar 
+            });
+
+            if (sidebarToggle) {
+                sidebarToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Sidebar toggle clicked');
+                    if (heroSidebar) {
+                        heroSidebar.classList.add('show');
+                        if (sidebarOverlay) {
+                            sidebarOverlay.style.display = 'block';
+                        }
+                    }
+                });
+            }
+
+            if (closeSidebar) {
+                closeSidebar.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    console.log('Close sidebar clicked');
+                    if (heroSidebar) {
+                        heroSidebar.classList.remove('show');
+                        if (sidebarOverlay) {
+                            sidebarOverlay.style.display = 'none';
+                        }
+                    }
+                });
+            }
+
+            if (sidebarOverlay) {
+                sidebarOverlay.addEventListener('click', function() {
+                    console.log('Overlay clicked');
+                    if (heroSidebar) {
+                        heroSidebar.classList.remove('show');
+                        this.style.display = 'none';
+                    }
+                });
+            }
+        });
+
+        // Initialize tooltips
+        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+
+        // Dark mode toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('iconify-icon');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.setAttribute('icon', 'ph:moon-duotone');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeIcon.setAttribute('icon', 'ph:sun-duotone');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            document.body.classList.add('dark-mode');
+            themeIcon.setAttribute('icon', 'ph:moon-duotone');
+        }
+
+        // Scroll to top
+        document.getElementById('scrollToTop').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Progress bar animation
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.ab-progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+        }
+
+        // Initialize progress bars when section is in view
+        const observerOptions = {
+            threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        const resumeSection = document.getElementById('resume');
+        if (resumeSection) {
+            observer.observe(resumeSection);
+        }
+
+        // Portfolio filtering with Isotope
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-button');
+            const portfolioList = document.querySelector('.portfolio-list');
+            
+            if (portfolioList && window.Isotope) {
+                const iso = new Isotope(portfolioList, {
+                    itemSelector: '.item',
+                    layoutMode: 'fitRows'
+                });
+
+                filterButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        // Remove active class from all buttons
+                        filterButtons.forEach(btn => btn.classList.remove('active'));
+                        // Add active class to clicked button
+                        this.classList.add('active');
+                        
+                        const filterValue = this.getAttribute('data-filter');
+                        iso.arrange({ filter: filterValue });
+                    });
+                });
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-item');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
