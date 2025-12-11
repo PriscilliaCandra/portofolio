@@ -17,7 +17,7 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800;900&family=Nunito+Sans:wght@300;400;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chocolat@1.0.1/dist/chocolat.css" />
-    
+
     <style>
         /* ... [PASTE CSS BARU DI SINI] ... */
         :root {
@@ -181,7 +181,7 @@
             position: sticky;
             top: 0;
             height: 100vh;
-            display: none; 
+            display: none;
             align-items: center;
             justify-content: center;
             z-index: 1000;
@@ -193,7 +193,8 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 50px;
             padding: 1rem 0;
-            flex-direction: column; /* Vertical navigation */
+            flex-direction: column;
+            /* Vertical navigation */
         }
 
         .nav-link {
@@ -979,6 +980,7 @@
 
         /* ==================== RESPONSIVE STYLES ==================== */
         @media (max-width: 1200px) {
+
             /* Hide the fixed left navigation column */
             .col-xl-1 {
                 display: none;
@@ -1017,8 +1019,9 @@
                 flex-direction: column;
                 align-items: center;
             }
-            
-            .fab-container .fab:nth-child(2) { /* Scroll to Top */
+
+            .fab-container .fab:nth-child(2) {
+                /* Scroll to Top */
                 display: none;
             }
 
@@ -1032,6 +1035,7 @@
         }
 
         @media (max-width: 768px) {
+
             /* Fixed bottom navigation for smaller screens (re-introduced here) */
             .main-navigation-wrapper {
                 position: fixed;
@@ -1042,7 +1046,8 @@
                 width: auto;
                 height: auto;
                 padding: 0;
-                display: block; /* Show on mobile/tablet to replace left side-nav */
+                display: block;
+                /* Show on mobile/tablet to replace left side-nav */
             }
 
             .nav-pills {
@@ -1137,9 +1142,10 @@
         /* Desktop Layout (Three Columns) */
         @media (min-width: 1200px) {
             .main-navigation-wrapper {
-                display: flex; /* Show vertical navigation on desktop */
+                display: flex;
+                /* Show vertical navigation on desktop */
             }
-            
+
             .col-xl-1 {
                 padding-left: 0;
                 padding-right: 0;
@@ -1150,26 +1156,27 @@
                 /* No offset needed, is the second column now */
                 margin-left: 0 !important;
             }
-            
+
             .col-xl-3.offset-xl-1 {
                 /* No offset needed, is the third column now */
                 margin-left: 0 !important;
                 display: block;
             }
-            
+
             .hero-sidebar {
                 position: sticky;
                 top: 0;
                 height: 100vh;
                 transform: translateX(0);
                 display: block !important;
-                width: 100%; /* Take full width of its column */
+                width: 100%;
+                /* Take full width of its column */
                 border-right: none;
                 border-left: 1px solid var(--light-grey);
                 box-shadow: none;
                 background: var(--secondary-color);
             }
-            
+
             body.dark-mode .hero-sidebar {
                 background: var(--secondary-color);
             }
@@ -1179,17 +1186,18 @@
             .sidebar-overlay {
                 display: none !important;
             }
-            
+
             .fab-container {
                 /* Reset for desktop: inside sidebar */
                 position: relative;
                 bottom: auto;
                 right: auto;
-                flex-direction: row; /* Horizontal alignment for the buttons inside sidebar */
+                flex-direction: row;
+                /* Horizontal alignment for the buttons inside sidebar */
                 justify-content: center;
                 gap: 1rem;
             }
-            
+
             .fab-container .fab {
                 width: 48px;
                 height: 48px;
@@ -1314,20 +1322,21 @@
                 <section id="navigation-bar-desktop" class="main-navigation-wrapper">
                     <ul class="nav nav-pills text-center align-items-center">
                         <li>
-                            <a href="#home" class="nav-link active rounded-0" aria-current="page" data-bs-toggle="tooltip"
-                                data-bs-placement="right" aria-label="Home" data-bs-original-title="Home">
+                            <a href="#home" class="nav-link active rounded-0" aria-current="page"
+                                data-bs-toggle="tooltip" data-bs-placement="right" aria-label="Home"
+                                data-bs-original-title="Home">
                                 <iconify-icon icon="ic:round-home"></iconify-icon>
                             </a>
                         </li>
                         <li>
-                            <a href="#about" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                                aria-label="About" data-bs-original-title="About">
+                            <a href="#about" class="nav-link rounded-0" data-bs-toggle="tooltip"
+                                data-bs-placement="right" aria-label="About" data-bs-original-title="About">
                                 <iconify-icon icon="ic:round-person"></iconify-icon>
                             </a>
                         </li>
                         <li>
-                            <a href="#resume" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                                aria-label="Resume" data-bs-original-title="Resume">
+                            <a href="#resume" class="nav-link rounded-0" data-bs-toggle="tooltip"
+                                data-bs-placement="right" aria-label="Resume" data-bs-original-title="Resume">
                                 <iconify-icon icon="ic:round-school"></iconify-icon>
                             </a>
                         </li>
@@ -1339,13 +1348,14 @@
                         </li>
                         <li>
                             <a href="#achievements" class="nav-link rounded-0" data-bs-toggle="tooltip"
-                                data-bs-placement="right" aria-label="Achievements" data-bs-original-title="Achievements">
+                                data-bs-placement="right" aria-label="Achievements"
+                                data-bs-original-title="Achievements">
                                 <iconify-icon icon="ic:round-star-border"></iconify-icon>
                             </a>
                         </li>
                         <li>
-                            <a href="#contact" class="nav-link rounded-0" data-bs-toggle="tooltip" data-bs-placement="right"
-                                aria-label="Contact" data-bs-original-title="Contact">
+                            <a href="#contact" class="nav-link rounded-0" data-bs-toggle="tooltip"
+                                data-bs-placement="right" aria-label="Contact" data-bs-original-title="Contact">
                                 <iconify-icon icon="ic:round-phone"></iconify-icon>
                             </a>
                         </li>
@@ -1355,23 +1365,31 @@
 
             <div class="col-xl-8 col-lg-12">
                 <div class="container content-container">
-                    
+
                     <section id="home" class="mt-0">
                         <div class="py-lg-4 my-lg-4 text-center">
                             <h1 class="fw-bold" data-aos="fade-up">Hi I'm Priscil</h1>
                             <div class="col-lg-10 mx-auto">
                                 <p class="lead-paragraph mb-4" data-aos="fade-up" data-aos-delay="100">
-                                    A Computer Science undergraduate student at Binus University, specializing in 
-                                    Artificial Intelligence, Data Science, and Web Frontend Development. Passionate about 
-                                    leveraging AI and data-driven solutions to solve complex problems.
+                                    A Computer Science undergraduate student at Binus University, with a focus on Artificial
+                                    Intelligence, Data Analytics, and Web Development. Passionate about applying AI and
+                                    data-driven approaches to solve real-world problems and enhance user experiences
+                                    through intelligent and impactful solutions.
+                                    <br><br>
+                                    Proficient in Python and SQL for data processing and analysis, as well as
+                                    experienced in web development using frameworks such as Laravel and Vue.js. Familiar
+                                    with machine learning workflows, data modeling, and deployment processes.
+                                    Demonstrates strong problem-solving abilities, effective teamwork, and reliable
+                                    project execution skills.
                                 </p>
-                                <div class="gap-2 d-sm-flex justify-content-sm-center" data-aos="fade-up" data-aos-delay="200">
-                                    <a href="https://drive.google.com/file/d/1ynV_YYzEEgDH5Mif23BUHV0dYniF4d61/view?usp=sharing" 
-                                       class="btn btn-primary btn-lg mt-3" target="_blank" rel="noopener">
+                                <div class="gap-2 d-sm-flex justify-content-sm-center" data-aos="fade-up"
+                                    data-aos-delay="200">
+                                    <a href="https://drive.google.com/file/d/1ynV_YYzEEgDH5Mif23BUHV0dYniF4d61/view?usp=sharing"
+                                        class="btn btn-primary btn-lg mt-3" target="_blank" rel="noopener">
                                         View CV
                                     </a>
-                                    <a href="https://drive.google.com/file/d/1VRnYJ3x9sVyEY8Ntb2yIuVlBrKGHgob-/view?usp=sharing" 
-                                       class="btn btn-outline-primary btn-lg mt-3" target="_blank" rel="noopener">
+                                    <a href="https://drive.google.com/file/d/1VRnYJ3x9sVyEY8Ntb2yIuVlBrKGHgob-/view?usp=sharing"
+                                        class="btn btn-outline-primary btn-lg mt-3" target="_blank" rel="noopener">
                                         View Resume
                                     </a>
                                 </div>
@@ -1383,12 +1401,13 @@
                         <div class="py-4 my-4">
                             <h1 class="fw-bold mt-5" data-aos="fade-up">About Me</h1>
                             <p class="lead-paragraph my-4" data-aos="fade-up" data-aos-delay="100">
-                                A highly motivated Computer Science student at Bina Nusantara University, specializing 
-                                in Artificial Intelligence, Data Science, and Web Frontend Development. Passionate about 
-                                leveraging AI and data-driven solutions to solve complex problems and enhance user 
-                                experiences through intelligent systems. Proficient in Python and frameworks like Laravel 
-                                for frontend development. Experienced in machine learning, data analytics, and model 
-                                deployment. Skilled in problem-solving, team collaboration, and project execution. 
+                                A highly motivated Computer Science student at Bina Nusantara University, specializing
+                                in Artificial Intelligence, Data Science, and Web Frontend Development. Passionate about
+                                leveraging AI and data-driven solutions to solve complex problems and enhance user
+                                experiences through intelligent systems. Proficient in Python and frameworks like
+                                Laravel
+                                for frontend development. Experienced in machine learning, data analytics, and model
+                                deployment. Skilled in problem-solving, team collaboration, and project execution.
                                 Always eager to learn, innovate, and contribute to cutting-edge technology solutions.
                             </p>
                         </div>
@@ -1396,10 +1415,10 @@
                         <div class="py-4 my-4">
                             <h2 class="fw-bold" data-aos="fade-up">Personal Info</h2>
                             <ul class="list-unstyled" data-aos="fade-up" data-aos-delay="100">
-                                <li><b>Age:</b> 20</li>
-                                <li><b>Residence:</b> West Jakarta, Indonesia</li>
-                                <li><b>E-mail:</b> priscillia.candra@binus.ac.id</li>
-                                <li><b>Phone:</b> +628118131010</li>
+                                <li class="mb-3"><b>Age:</b> 20</li>
+                                <li class="mb-3"><b>Residence:</b> West Jakarta, Indonesia</li>
+                                <li class="mb-3"><b>E-mail:</b> priscillia.candra@binus.ac.id</li>
+                                <li class="mb-3"><b>Phone:</b> +628118131010</li>
                             </ul>
                         </div>
                         <hr class="mid-break my-2" />
@@ -1408,7 +1427,8 @@
                             <div class="row row-cols-1 row-cols-sm-2">
                                 <div class="col d-flex align-items-start pb-5" data-aos="fade-up">
                                     <div class="service-icon me-4">
-                                        <iconify-icon icon="ph:cpu" style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
+                                        <iconify-icon icon="ph:cpu"
+                                            style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
                                     </div>
                                     <div>
                                         <h4 class="fw-bold mb-0">Artificial Intelligence (AI)</h4>
@@ -1421,7 +1441,8 @@
                                 </div>
                                 <div class="col d-flex align-items-start pb-5" data-aos="fade-up" data-aos-delay="100">
                                     <div class="service-icon me-4">
-                                        <iconify-icon icon="ph:brain" style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
+                                        <iconify-icon icon="ph:brain"
+                                            style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
                                     </div>
                                     <div>
                                         <h4 class="fw-bold mb-0">Machine Learning</h4>
@@ -1434,7 +1455,8 @@
                                 </div>
                                 <div class="col d-flex align-items-start pb-5" data-aos="fade-up" data-aos-delay="200">
                                     <div class="service-icon me-4">
-                                        <iconify-icon icon="ph:code" style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
+                                        <iconify-icon icon="ph:code"
+                                            style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
                                     </div>
                                     <div>
                                         <h4 class="fw-bold mb-0">Web Frontend Development</h4>
@@ -1447,7 +1469,8 @@
                                 </div>
                                 <div class="col d-flex align-items-start pb-5" data-aos="fade-up" data-aos-delay="300">
                                     <div class="service-icon me-4">
-                                        <iconify-icon icon="ph:chat-text" style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
+                                        <iconify-icon icon="ph:chat-text"
+                                            style="font-size: 2.5rem; color: var(--accent-color);"></iconify-icon>
                                     </div>
                                     <div>
                                         <h4 class="fw-bold mb-0">NLP</h4>
@@ -1464,8 +1487,8 @@
                     </section>
 
                     <section id="resume">
-                        <div class="py-4 my-4">
-                            <h1 class="fw-bold mt-5" data-aos="fade-up">Resume</h1>
+                        <div>
+                            <h1 class="fw-bold mt-3 mb-3" data-aos="fade-up">Resume</h1>
                         </div>
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
@@ -1514,8 +1537,8 @@
                                         <h3 class="timeline-title">UREEKA Active Member</h3>
                                         <p class="timeline-company">UREEKA Binus</p>
                                         <p class="timeline-description">
-                                            UREEKA is a software development community at Bina Nusantara University 
-                                            (BINUS) that focuses on fostering students' skills in application and 
+                                            UREEKA is a software development community at Bina Nusantara University
+                                            (BINUS) that focuses on fostering students' skills in application and
                                             software development.
                                         </p>
                                     </div>
@@ -1526,7 +1549,8 @@
                                         <h3 class="timeline-title">SASC Education Mentor (Part-time)</h3>
                                         <p class="timeline-company">SASC Mentoring Scholarship</p>
                                         <p class="timeline-description">
-                                            Awarded the Mentoring SASC BINUS Scholarship for academic excellence (GPA > 3.5). 
+                                            Awarded the Mentoring SASC BINUS Scholarship for academic excellence (GPA >
+                                            3.5).
                                             Responsible for guiding students with academic challenges.
                                         </p>
                                     </div>
@@ -1566,7 +1590,7 @@
                                         <h3 class="timeline-title">Bachelor of Computer Science</h3>
                                         <p class="timeline-company">Binus University</p>
                                         <p class="timeline-description">
-                                            Intelligent Systems Specialization. Actively involved in student leadership 
+                                            Intelligent Systems Specialization. Actively involved in student leadership
                                             and extracurricular activities.
                                         </p>
                                     </div>
@@ -1578,7 +1602,8 @@
                                         <p class="timeline-company">Dicoding Academy</p>
                                         <p class="timeline-description">
                                             Learned the fundamentals of machine learning with a focus on supervised
-                                            learning, unsupervised learning, and techniques to improve model performance.
+                                            learning, unsupervised learning, and techniques to improve model
+                                            performance.
                                         </p>
                                     </div>
                                 </div>
@@ -1598,8 +1623,8 @@
                     </section>
 
                     <section id="portfolio">
-                        <div class="py-4 my-4">
-                            <h1 class="fw-bold mt-5" data-aos="fade-up">Portfolio</h1>
+                        <div>
+                            <h1 class="fw-bold mt-3" data-aos="fade-up">Portfolio</h1>
                         </div>
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
@@ -1627,9 +1652,10 @@
                                             <span class="portfolio-tag">NLP</span>
                                         </div>
                                         <h4>AI Fitness Chatbot using Vue.JS & FastAPI Python</h4>
-                                        <p>Full-stack AI Fitness Coach that generates personalized workouts, diet plans, 
-                                           recipes, portion sizing, and weekly grocery lists based on user goals.</p>
-                                        <a href="https://github.com/PriscilliaCandra/fitness_chatbot" class="icon-link" target="_blank">
+                                        <p>Full-stack AI Fitness Coach that generates personalized workouts, diet plans,
+                                            recipes, portion sizing, and weekly grocery lists based on user goals.</p>
+                                        <a href="https://github.com/PriscilliaCandra/fitness_chatbot" class="icon-link"
+                                            target="_blank">
                                             View on GitHub
                                         </a>
                                     </div>
@@ -1641,9 +1667,10 @@
                                             <span class="portfolio-tag">NLP</span>
                                         </div>
                                         <h4>Document Classification App using Machine Learning & NLP</h4>
-                                        <p>Streamlit application that automatically classifies and clusters documents 
-                                           using machine learning with TF-IDF and Logistic Regression model.</p>
-                                        <a href="https://github.com/PriscilliaCandra/document_clustering_nlp" class="icon-link" target="_blank">
+                                        <p>Streamlit application that automatically classifies and clusters documents
+                                            using machine learning with TF-IDF and Logistic Regression model.</p>
+                                        <a href="https://github.com/PriscilliaCandra/document_clustering_nlp"
+                                            class="icon-link" target="_blank">
                                             View on GitHub
                                         </a>
                                     </div>
@@ -1654,9 +1681,10 @@
                                             <span class="portfolio-tag">Web Dev</span>
                                         </div>
                                         <h4>Student Payment Management System</h4>
-                                        <p>Web-based system to streamline student enrollments, payments, and batch 
-                                           assignments with automated PDF receipt generation.</p>
-                                        <a href="https://github.com/PriscilliaCandra/student-management-system" class="icon-link" target="_blank">
+                                        <p>Web-based system to streamline student enrollments, payments, and batch
+                                            assignments with automated PDF receipt generation.</p>
+                                        <a href="https://github.com/PriscilliaCandra/student-management-system"
+                                            class="icon-link" target="_blank">
                                             View on GitHub
                                         </a>
                                     </div>
@@ -1667,9 +1695,10 @@
                                             <span class="portfolio-tag">ML</span>
                                         </div>
                                         <h4>Health Prediction (Diabetes & Heart Disease)</h4>
-                                        <p>Health Prediction application that estimates the risk of diabetes and 
-                                           heart disease using Random Forest Classifier.</p>
-                                        <a href="https://github.com/PriscilliaCandra/health_prediction" class="icon-link" target="_blank">
+                                        <p>Health Prediction application that estimates the risk of diabetes and
+                                            heart disease using Random Forest Classifier.</p>
+                                        <a href="https://github.com/PriscilliaCandra/health_prediction"
+                                            class="icon-link" target="_blank">
                                             View on GitHub
                                         </a>
                                     </div>
@@ -1680,9 +1709,10 @@
                                             <span class="portfolio-tag">ML</span>
                                         </div>
                                         <h4>Population Prediction App</h4>
-                                        <p>Population Prediction App that forecasts country's population based on 
-                                           selected year and country using Linear Regression model.</p>
-                                        <a href="https://github.com/PriscilliaCandra/population_prediction" class="icon-link" target="_blank">
+                                        <p>Population Prediction App that forecasts country's population based on
+                                            selected year and country using Linear Regression model.</p>
+                                        <a href="https://github.com/PriscilliaCandra/population_prediction"
+                                            class="icon-link" target="_blank">
                                             View on GitHub
                                         </a>
                                     </div>
@@ -1693,9 +1723,10 @@
                                             <span class="portfolio-tag">ML</span>
                                         </div>
                                         <h4>Price Comparison using Python</h4>
-                                        <p>Application that allows users to compare product prices across e-commerce 
-                                           platforms using Deep Learning and Web Scraping.</p>
-                                        <a href="https://github.com/PriscilliaCandra/comparing_price" class="icon-link" target="_blank">
+                                        <p>Application that allows users to compare product prices across e-commerce
+                                            platforms using Deep Learning and Web Scraping.</p>
+                                        <a href="https://github.com/PriscilliaCandra/comparing_price" class="icon-link"
+                                            target="_blank">
                                             View on GitHub
                                         </a>
                                     </div>
@@ -1706,9 +1737,10 @@
                                             <span class="portfolio-tag">Web Dev</span>
                                         </div>
                                         <h4>EduMatch</h4>
-                                        <p>Career Guidance Chatbot web application to help high school students explore 
-                                           their interests, personality, and potential university majors.</p>
-                                        <a href="https://github.com/PriscilliaCandra/edumatch" class="icon-link" target="_blank">
+                                        <p>Career Guidance Chatbot web application to help high school students explore
+                                            their interests, personality, and potential university majors.</p>
+                                        <a href="https://github.com/PriscilliaCandra/edumatch" class="icon-link"
+                                            target="_blank">
                                             View on GitHub
                                         </a>
                                     </div>
@@ -1719,9 +1751,10 @@
                                             <span class="portfolio-tag">Web Dev</span>
                                         </div>
                                         <h4>Rental Car Web</h4>
-                                        <p>Rent Car Website that enables users to browse cars, rent vehicles online, 
-                                           and track detailed payment history for each transaction.</p>
-                                        <a href="https://github.com/PriscilliaCandra/rent-car" class="icon-link" target="_blank">
+                                        <p>Rent Car Website that enables users to browse cars, rent vehicles online,
+                                            and track detailed payment history for each transaction.</p>
+                                        <a href="https://github.com/PriscilliaCandra/rent-car" class="icon-link"
+                                            target="_blank">
                                             View on GitHub
                                         </a>
                                     </div>
@@ -1731,8 +1764,8 @@
                     </section>
 
                     <section id="achievements">
-                        <div class="py-4 my-4">
-                            <h1 class="fw-bold mt-5" data-aos="fade-up">Honors & Achievements</h1>
+                        <div>
+                            <h1 class="fw-bold mt-3" data-aos="fade-up">Honors & Achievements</h1>
                         </div>
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
@@ -1744,9 +1777,9 @@
                                         </div>
                                         <h4>Grand Finalist Hackathon AI 2024 x Microsoft</h4>
                                         <p>Selected as one of the Grand Finalists in the SOCS Binus Hackathon AI
-                                                2024. Collaborated in a multidisciplinary team to design and develop an
-                                                AI-powered solution. Recognized for innovation, technical execution, and
-                                                presentation quality.</p>
+                                            2024. Collaborated in a multidisciplinary team to design and develop an
+                                            AI-powered solution. Recognized for innovation, technical execution, and
+                                            presentation quality.</p>
                                         <a href="#" class="icon-link" target="_blank">
                                             <iconify-icon icon="ph:crown-fill"></iconify-icon>
                                         </a>
@@ -1759,9 +1792,9 @@
                                         </div>
                                         <h4>Athletics - 1500m Running (Women's Category)</h4>
                                         <p>Achieved 2nd Place in the 1500m running competition, representing my
-                                                university at the city-level student sports invitational. This
-                                                achievement reflects my commitment to discipline, perseverance, and time
-                                                management.</p>
+                                            university at the city-level student sports invitational. This
+                                            achievement reflects my commitment to discipline, perseverance, and time
+                                            management.</p>
                                         <a href="#" class="icon-link" target="_blank">
                                             <iconify-icon icon="ph:medal-fill"></iconify-icon>
                                         </a>
@@ -1772,11 +1805,14 @@
                                         <div class="portfolio-tags">
                                             <span class="portfolio-tag">Sept 2025</span>
                                         </div>
-                                        <h4>Paper Acceptance & Presentation – International Conference on Cyber Information and Communication Systems (ICoCICs)</h4>
-                                        <p>Awarded for having my research paper, “Classification VS Few-Shot-Learning Model 
-                                            for Translating Sign to Speech,” accepted and presented at the ICoCICs 
-                                            international conference. The paper explores the comparison between CNN and 
-                                            Few-Shot Learning (Prototypical Network) for real-time ASL gesture recognition 
+                                        <h4>Paper Acceptance & Presentation – International Conference on Cyber
+                                            Information and Communication Systems (ICoCICs)</h4>
+                                        <p>Awarded for having my research paper, “Classification VS Few-Shot-Learning
+                                            Model
+                                            for Translating Sign to Speech,” accepted and presented at the ICoCICs
+                                            international conference. The paper explores the comparison between CNN and
+                                            Few-Shot Learning (Prototypical Network) for real-time ASL gesture
+                                            recognition
                                             and translation.</p>
                                         <a href="#" class="icon-link" target="_blank">
                                             <iconify-icon icon="ph:star-fill"></iconify-icon>
@@ -1788,14 +1824,15 @@
                     </section>
 
                     <section id="contact">
-                        <div class="py-4 my-4">
-                            <h1 class="fw-bold mt-5" data-aos="fade-up">Contact</h1>
-                            <p data-aos="fade-up" data-aos-delay="100">Wanna talk about project, please feel free to contact us.</p>
+                        <div>
+                            <h1 class="fw-bold" data-aos="fade-up">Contact</h1>
+                            <p data-aos="fade-up" data-aos-delay="100">Wanna talk about project, please feel free to
+                                contact us.</p>
                         </div>
                         <hr class="mid-break my-2" />
                         <div class="py-4 my-4">
                             <div class="row justify-content-around">
-                                <div class="col-md-4 contact-list" data-aos="fade-up">
+                                <div class="col-md-3 contact-list" data-aos="fade-up">
                                     <p class="contact-paragraph">
                                         <iconify-icon icon="ic:outline-phone"></iconify-icon>
                                         +628118131010
@@ -1826,288 +1863,296 @@
                     </button>
                     <div class="sidebar-content">
                         <img src="/images/profile.jpeg" class="hero-img mb-4" alt="Priscillia Candra" loading="lazy" />
-                        
+
                         <h2 class="fw-bold">Priscillia Lovemel Candra</h2>
                         <p class="sidebar-subtitle">
                             Undergraduate Computer Science Binus University Student |
                             Focus on AI & Data Analyst
                         </p>
-                        
+
                         <div class="social-icon">
                             <div class="d-flex justify-content-center gap-3">
-                                <a class="social-link" href="https://www.linkedin.com/in/priscillia-lovemel-candra-0aaa56281/" target="_blank" rel="noopener">
+                                <a class="social-link"
+                                    href="https://www.linkedin.com/in/priscillia-lovemel-candra-0aaa56281/"
+                                    target="_blank" rel="noopener">
                                     <iconify-icon icon="icomoon-free:linkedin"></iconify-icon>
                                 </a>
-                                <a class="social-link" href="https://github.com/PriscilliaCandra" target="_blank" rel="noopener">
+                                <a class="social-link" href="https://github.com/PriscilliaCandra" target="_blank"
+                                    rel="noopener">
                                     <iconify-icon icon="icomoon-free:github"></iconify-icon>
                                 </a>
-                                <a class="social-link" href="https://www.instagram.com/priscilliacandraa" target="_blank" rel="noopener">
+                                <a class="social-link" href="https://www.instagram.com/priscilliacandraa"
+                                    target="_blank" rel="noopener">
                                     <iconify-icon icon="icomoon-free:instagram"></iconify-icon>
                                 </a>
                             </div>
                         </div>
-                        
+
                         <div class="sidebar-info">
                             <div class="info-item">
                                 <iconify-icon icon="ic:outline-location-on"></iconify-icon>
                                 <div class="info-content">
                                     <h6>Location</h6>
                                     <p>West Jakarta, Indonesia</p>
-                                </d-f>
-                            </div>
-                            <div class="info-item">
-                                <iconify-icon icon="ic:outline-email"></iconify-icon>
-                                <div class="info-content">
-                                    <h6>Email</h6>
-                                    <p>priscillia.candra@binus.ac.id</p>
+                                    </d-f>
+                                </div>
+                                <div class="info-item">
+                                    <iconify-icon icon="ic:outline-email"></iconify-icon>
+                                    <div class="info-content">
+                                        <h6>Email</h6>
+                                        <p>priscillia.candra@binus.ac.id</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <iconify-icon icon="ic:outline-phone"></iconify-icon>
+                                    <div class="info-content">
+                                        <h6>Phone</h6>
+                                        <p>+62 811 8131 010</p>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <iconify-icon icon="ic:round-school"></iconify-icon>
+                                    <div class="info-content">
+                                        <h6>Education</h6>
+                                        <p>Bina Nusantara University</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="info-item">
-                                <iconify-icon icon="ic:outline-phone"></iconify-icon>
-                                <div class="info-content">
-                                    <h6>Phone</h6>
-                                    <p>+62 811 8131 010</p>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <iconify-icon icon="ic:round-school"></iconify-icon>
-                                <div class="info-content">
-                                    <h6>Education</h6>
-                                    <p>Bina Nusantara University</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="download-buttons">
-                            <a href="https://drive.google.com/file/d/1ynV_YYzEEgDH5Mif23BUHV0dYniF4d61/view?usp=sharing" 
-                               class="download-btn" target="_blank" rel="noopener">
-                                <iconify-icon icon="ic:outline-description"></iconify-icon>
-                                Download CV
-                            </a>
-                            <a href="https://drive.google.com/file/d/1VRnYJ3x9sVyEY8Ntb2yIuVlBrKGHgob-/view?usp=sharing" 
-                               class="download-btn" target="_blank" rel="noopener">
-                                <iconify-icon icon="ic:outline-file-present"></iconify-icon>
-                                Download Resume
-                            </a>
-                        </div>
 
-                        <div class="fab-container">
-                            <button class="fab" id="themeToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Toggle Theme">
-                                <iconify-icon icon="ph:sun-duotone"></iconify-icon>
-                            </button>
-                            <button class="fab" id="scrollToTop" data-bs-toggle="tooltip" data-bs-placement="left" title="Scroll to Top">
-                                <iconify-icon icon="ph:arrow-up-duotone"></iconify-icon>
-                            </button>
+                            <div class="download-buttons">
+                                <a href="https://drive.google.com/file/d/1ynV_YYzEEgDH5Mif23BUHV0dYniF4d61/view?usp=sharing"
+                                    class="download-btn" target="_blank" rel="noopener">
+                                    <iconify-icon icon="ic:outline-description"></iconify-icon>
+                                    Download CV
+                                </a>
+                                <a href="https://drive.google.com/file/d/1VRnYJ3x9sVyEY8Ntb2yIuVlBrKGHgob-/view?usp=sharing"
+                                    class="download-btn" target="_blank" rel="noopener">
+                                    <iconify-icon icon="ic:outline-file-present"></iconify-icon>
+                                    Download Resume
+                                </a>
+                            </div>
+
+                            <div class="fab-container">
+                                <button class="fab" id="themeToggle" data-bs-toggle="tooltip" data-bs-placement="left"
+                                    title="Toggle Theme">
+                                    <iconify-icon icon="ph:sun-duotone"></iconify-icon>
+                                </button>
+                                <button class="fab" id="scrollToTop" data-bs-toggle="tooltip" data-bs-placement="left"
+                                    title="Scroll to Top">
+                                    <iconify-icon icon="ph:arrow-up-duotone"></iconify-icon>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="mobile-menu-fab d-lg-none">
-        <button class="fab" id="sidebarToggle" data-bs-toggle="tooltip" data-bs-placement="left" title="Open Profile">
-            <iconify-icon icon="ph:user-circle-fill"></iconify-icon>
-        </button>
-    </div>
+        <div class="mobile-menu-fab d-lg-none">
+            <button class="fab" id="sidebarToggle" data-bs-toggle="tooltip" data-bs-placement="left"
+                title="Open Profile">
+                <iconify-icon icon="ph:user-circle-fill"></iconify-icon>
+            </button>
+        </div>
 
-    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+        <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chocolat@1.0.1/dist/js/chocolat.min.js"></script>
-    <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-
-        // Sidebar toggle for mobile
-        document.addEventListener('DOMContentLoaded', function() {
-            const sidebarToggle = document.getElementById('sidebarToggle');
-            const closeSidebar = document.getElementById('closeSidebar');
-            const sidebarOverlay = document.getElementById('sidebarOverlay');
-            const heroSidebar = document.querySelector('.hero-sidebar');
-
-            console.log('Elements found:', { 
-                sidebarToggle: !!sidebarToggle, 
-                closeSidebar: !!closeSidebar,
-                sidebarOverlay: !!sidebarOverlay,
-                heroSidebar: !!heroSidebar 
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.7/dist/iconify-icon.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/isotope-layout@3.0.6/dist/isotope.pkgd.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chocolat@1.0.1/dist/js/chocolat.min.js"></script>
+        <script>
+            // Initialize AOS
+            AOS.init({
+                duration: 800,
+                once: true
             });
 
-            if (sidebarToggle) {
-                sidebarToggle.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('Sidebar toggle clicked');
-                    if (heroSidebar) {
-                        heroSidebar.classList.add('show');
-                        if (sidebarOverlay) {
-                            sidebarOverlay.style.display = 'block';
+            // Sidebar toggle for mobile
+            document.addEventListener('DOMContentLoaded', function () {
+                const sidebarToggle = document.getElementById('sidebarToggle');
+                const closeSidebar = document.getElementById('closeSidebar');
+                const sidebarOverlay = document.getElementById('sidebarOverlay');
+                const heroSidebar = document.querySelector('.hero-sidebar');
+
+                console.log('Elements found:', {
+                    sidebarToggle: !!sidebarToggle,
+                    closeSidebar: !!closeSidebar,
+                    sidebarOverlay: !!sidebarOverlay,
+                    heroSidebar: !!heroSidebar
+                });
+
+                if (sidebarToggle) {
+                    sidebarToggle.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        console.log('Sidebar toggle clicked');
+                        if (heroSidebar) {
+                            heroSidebar.classList.add('show');
+                            if (sidebarOverlay) {
+                                sidebarOverlay.style.display = 'block';
+                            }
                         }
-                    }
-                });
-            }
+                    });
+                }
 
-            if (closeSidebar) {
-                closeSidebar.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('Close sidebar clicked');
-                    if (heroSidebar) {
-                        heroSidebar.classList.remove('show');
-                        if (sidebarOverlay) {
-                            sidebarOverlay.style.display = 'none';
+                if (closeSidebar) {
+                    closeSidebar.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        console.log('Close sidebar clicked');
+                        if (heroSidebar) {
+                            heroSidebar.classList.remove('show');
+                            if (sidebarOverlay) {
+                                sidebarOverlay.style.display = 'none';
+                            }
                         }
-                    }
-                });
-            }
+                    });
+                }
 
-            if (sidebarOverlay) {
-                sidebarOverlay.addEventListener('click', function() {
-                    console.log('Overlay clicked');
-                    if (heroSidebar) {
-                        heroSidebar.classList.remove('show');
-                        this.style.display = 'none';
-                    }
-                });
-            }
-        });
+                if (sidebarOverlay) {
+                    sidebarOverlay.addEventListener('click', function () {
+                        console.log('Overlay clicked');
+                        if (heroSidebar) {
+                            heroSidebar.classList.remove('show');
+                            this.style.display = 'none';
+                        }
+                    });
+                }
+            });
 
-        // Initialize tooltips
-        const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-        const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-            return new bootstrap.Tooltip(tooltipTriggerEl);
-        });
+            // Initialize tooltips
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl);
+            });
 
-        // Dark mode toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const themeIcon = themeToggle.querySelector('iconify-icon');
-        
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
+            // Dark mode toggle
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('iconify-icon');
+
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+
+                if (document.body.classList.contains('dark-mode')) {
+                    themeIcon.setAttribute('icon', 'ph:moon-duotone');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeIcon.setAttribute('icon', 'ph:sun-duotone');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
                 themeIcon.setAttribute('icon', 'ph:moon-duotone');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.setAttribute('icon', 'ph:sun-duotone');
-                localStorage.setItem('theme', 'light');
             }
-        });
 
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-mode');
-            themeIcon.setAttribute('icon', 'ph:moon-duotone');
-        }
-
-        // Scroll to top
-        document.getElementById('scrollToTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Progress bar animation
-        function animateProgressBars() {
-            const progressBars = document.querySelectorAll('.ab-progress-bar');
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 300);
+            // Scroll to top
+            document.getElementById('scrollToTop').addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
-        }
 
-        // Initialize progress bars when section is in view
-        const observerOptions = {
-            threshold: 0.3
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateProgressBars();
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        const resumeSection = document.getElementById('resume');
-        if (resumeSection) {
-            observer.observe(resumeSection);
-        }
-
-        // Portfolio filtering with Isotope
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-button');
-            const portfolioList = document.querySelector('.portfolio-list');
-            
-            if (portfolioList && window.Isotope) {
-                const iso = new Isotope(portfolioList, {
-                    itemSelector: '.item',
-                    layoutMode: 'fitRows'
+            // Progress bar animation
+            function animateProgressBars() {
+                const progressBars = document.querySelectorAll('.ab-progress-bar');
+                progressBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 300);
                 });
+            }
 
-                filterButtons.forEach(button => {
-                    button.addEventListener('click', function() {
-                        // Remove active class from all buttons
-                        filterButtons.forEach(btn => btn.classList.remove('active'));
-                        // Add active class to clicked button
-                        this.classList.add('active');
-                        
-                        const filterValue = this.getAttribute('data-filter');
-                        iso.arrange({ filter: filterValue });
+            // Initialize progress bars when section is in view
+            const observerOptions = {
+                threshold: 0.3
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateProgressBars();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            const resumeSection = document.getElementById('resume');
+            if (resumeSection) {
+                observer.observe(resumeSection);
+            }
+
+            // Portfolio filtering with Isotope
+            document.addEventListener('DOMContentLoaded', function () {
+                const filterButtons = document.querySelectorAll('.filter-button');
+                const portfolioList = document.querySelector('.portfolio-list');
+
+                if (portfolioList && window.Isotope) {
+                    const iso = new Isotope(portfolioList, {
+                        itemSelector: '.item',
+                        layoutMode: 'fitRows'
                     });
-                });
-            }
-        });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+                    filterButtons.forEach(button => {
+                        button.addEventListener('click', function () {
+                            // Remove active class from all buttons
+                            filterButtons.forEach(btn => btn.classList.remove('active'));
+                            // Add active class to clicked button
+                            this.classList.add('active');
+
+                            const filterValue = this.getAttribute('data-filter');
+                            iso.arrange({ filter: filterValue });
+                        });
                     });
                 }
             });
-        });
 
-        // Update active nav link on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-item');
-            
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= sectionTop - 200) {
-                    current = section.getAttribute('id');
-                }
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
             });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+            // Update active nav link on scroll
+            window.addEventListener('scroll', () => {
+                const sections = document.querySelectorAll('section[id]');
+                const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-item');
+
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (scrollY >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
             });
-        });
-    </script>
+        </script>
 </body>
+
 </html>
